@@ -1,8 +1,16 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from .squemas import ModelInput
+import joblib
 
-app = FastAPI()
+app = FastAPI(title="Heart Attack Risk API")
+
+# Load model
+model = joblib.load("app/model.joblib")
 
 @app.get("/")
-def base():
-    return {"result": "todo good"}
+def health_check():
+    return {"status": "Ok"}
+
+
+
+
