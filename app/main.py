@@ -4,11 +4,11 @@ from .services import predict_heart_disease
 
 app = FastAPI(title="Heart Attack Risk API")
 
-@app.get("/")
+@app.get("/", tags=["Health"])
 def health_check():
     return {"status": "Ok"}
 
-@app.post("/predict", response_model=PredictionResult)
+@app.post("/predict", response_model=PredictionResult, tags=["Predict"])
 def predict(data: PatientData):
     prediction, probability = predict_heart_disease(data)
 

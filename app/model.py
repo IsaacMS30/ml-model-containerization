@@ -1,4 +1,4 @@
 import joblib
 
 # Load model
-model = joblib.load("app/model.joblib")
+model = joblib.load("app/models/model.joblib")
