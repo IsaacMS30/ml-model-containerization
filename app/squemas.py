@@ -14,3 +14,7 @@ class PatientData(BaseModel):
     slope: int
     major_vessels: int
 
+class PredictionResult(BaseModel):
+    heart_attack_risk: int
+    risk_probability: float
+

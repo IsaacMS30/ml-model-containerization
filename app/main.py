@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .squemas import PatientData
+from .squemas import PatientData, PredictionResult
 import joblib
 import numpy as np
 
@@ -12,7 +12,7 @@ model = joblib.load("app/model.joblib")
 def health_check():
     return {"status": "Ok"}
 
-@app.post("/predict")
+@app.post("/predict", response_model=PredictionResult)
 def predict(data: PatientData):
     features = np.array([[
         data.age,
@@ -32,7 +32,8 @@ def predict(data: PatientData):
     prediction = int(model.predict(features)[0])
     probability = float(model.predict_proba(features)[0][1])
 
-    return {
-        "heart_attack_risk": prediction,
-        "risk_probability":  probability
-    }
+
+    return PredictionResult(
+        heart_attack_risk=prediction,
+        risk_probability=probability
+    )
