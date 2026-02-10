@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class ModelInput(BaseModel):
+class PatientData(BaseModel):
     age: int
     gender: int # 0 = female, 1 = male
     chest_pain_type: int # 0-3
