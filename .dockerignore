@@ -23,10 +23,5 @@ venv/
 .DS_Store
 Thumbs.db
 
-# ML artifacts (si no quieres incluirlos)
-*.joblib
-*.pkl
-models/
-
 # Logs
 *.log
