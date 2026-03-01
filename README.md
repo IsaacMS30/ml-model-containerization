@@ -1,7 +1,9 @@
 # 🫀 Heart Attack Risk Prediction API
 
 A REST API built with FastAPI that serves a trained Machine Learning model for heart attack risk prediction.
-The model is packaged inside a Docker container and loaded at application startup.
+
+The application is containerized using Docker and deployed to Render.
+
 
 ## 🔬 Machine Learning Model
 
@@ -10,6 +12,15 @@ The model was developed and trained in a separate repository:
 ML Project Repository: https://github.com/IsaacMS30/heart-attack-risk-detection
 
 This API consumes the serialized model artifact (e.g., .pkl) and exposes it through HTTP endpoints.
+
+
+## 🌍 Live Demo
+
+The API is deployed and publicly accessible:
+
+Base URL (Health Check): https://ml-model-containerization.onrender.com
+Interactive Docs (Swagger): https://ml-model-containerization.onrender.com/docs
+
 
 ## 🛠 Tools
 
@@ -21,21 +32,20 @@ This API consumes the serialized model artifact (e.g., .pkl) and exposes it thro
 
 - Docker
 
-## 🐳 Run with Docker
 
-### Build the image:
+## 🐳 Run Locally with Docker
 
-docker build -t heart-attack-risk-api .
+Build the image:
 
+docker build -t ml-api .
 
-### Run the container:
+Run the container:
 
-docker run -p 8000:80 heart-attack-risk-api
+docker run -p 8000:8000 -e PORT=8000 ml-api
 
-
-After that, API available at:
-
+Access the API at:
 http://localhost:8000/docs
+
 
 ## 📡 Endpoints
 
@@ -60,11 +70,3 @@ Body for this endpoint:
   "st_slope": 2
 }
 </pre>
-
-## 📌 Notes
-
-- The model is loaded once at startup.
-
-- The application is fully containerized and portable.
-
-- Stateless design allows horizontal scaling.
