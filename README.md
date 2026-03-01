@@ -19,6 +19,7 @@ This API consumes the serialized model artifact (e.g., .pkl) and exposes it thro
 The API is deployed and publicly accessible:
 
 Base URL (Health Check): https://ml-model-containerization.onrender.com
+
 Interactive Docs (Swagger): https://ml-model-containerization.onrender.com/docs
 
 
